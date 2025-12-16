@@ -1,0 +1,121 @@
+---
+title: Changelog
+description: History of updates to NorAm Partners' services, policies, and documentation.
+---
+
+## Overview
+
+NorAm Partners maintains this changelog to keep you informed about service enhancements, policy changes, and documentation revisions. Review updates by version to understand impacts on your logistics operations, including 3PL fulfillment, asset recovery, and returns processing.
+
+<Columns cols={3}>
+  <Card title="Services" icon="truck" href="/docs/services">
+    Explore fulfillment, kitting, and recovery updates.
+  </Card>
+  <Card title="Policies" icon="file-text" href="/docs/policies">
+    Review changes to B2B/B2C terms and returns grading.
+  </Card>
+  <Card title="API Reference" icon="code" href="/docs/api">
+    Track integration and tracking endpoint revisions.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Subscribe to our RSS feed or email notifications to receive changelog updates automatically.
+</Callout>
+
+## Recent Updates
+
+<Update label="2024-10-20" description="v2.1.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time shipment tracking API endpoint for consumer electronics fulfillment.
+- Introduced automated kitting configurations for media products.
+
+## Improvements
+
+- Enhanced returns grading accuracy by 20% with AI-powered inspection.
+- Optimized B2C fulfillment workflows for faster order processing.
+
+```javascript
+// New tracking endpoint example
+const trackShipment = async (shipmentId) => {
+  const response = await fetch(`https://api.norampartners.com/v2/track/${shipmentId}`, {
+    headers: { Authorization: `Bearer ${YOUR_API_KEY}` }
+  });
+  return response.json();
+};
+```
+
+</Update>
+
+<Update label="2024-09-15" description="v2.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Launched asset recovery dashboard for partners in consumer goods markets.
+- Integrated 3PL returns repair service with grading reports.
+
+## Breaking Changes
+
+- Updated authentication to require `{API_KEY}` in headers instead of query params.
+- Deprecated legacy `/v1/fulfill` endpoint; migrate to `/v2/fulfill`.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Updated auth header
+  headers: { "Authorization": `Bearer ${YOUR_API_KEY}` }
+  ```
+  ```python
+  # Updated auth header
+  headers = {"Authorization": f"Bearer {YOUR_API_KEY}"}
+  ```
+</CodeGroup>
+
+</Update>
+
+<Update label="2024-08-10" description="v1.5.0" tags={["bugfix", "improvement"]}>
+
+## Bug Fixes
+
+- Fixed intermittent failures in B2B kitting order submissions.
+- Resolved policy enforcement issues for high-volume returns.
+
+## Improvements
+
+- Improved documentation for returns grading scales and repair SLAs.
+- Added validation for shipment weights in fulfillment requests.
+
+</Update>
+
+## Stay Updated
+
+Follow these steps to monitor changes relevant to your operations.
+
+<Steps>
+  <Step title="Subscribe" icon="bell">
+    Visit the notifications page and enter your email.
+  </Step>
+  <Step title="Check API" icon="api">
+    Review endpoint changes in the <a href="/docs/api">API docs</a>.
+  </Step>
+  <Step title="Review Policies" icon="shield">
+    Scan policy updates before renewals.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Services" icon="truck">
+    Focus on fulfillment and recovery enhancements.
+  </Tab>
+  <Tab title="Policies" icon="file">
+    Track compliance and terms revisions.
+  </Tab>
+  <Tab title="Documentation" icon="book-open">
+    Note revisions to guides and references.
+  </Tab>
+</Tabs>
+
+<Expandable title="Migration Guide" default-open="false">
+  For v2.0.0 breaking changes, update your integration scripts to use header-based auth. Test in staging first.
+</Expandable>

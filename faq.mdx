@@ -1,0 +1,141 @@
+---
+title: Frequently Asked Questions
+description: Answers to common inquiries about partnering with NorAm, service details, and operational support.
+---
+
+## Partnership Overview
+
+NorAm International Partners provides tailored logistics solutions including asset recovery, 3PL fulfillment, kitting, and returns processing for media, consumer electronics, and consumer goods. Review these frequently asked questions to understand eligibility, pricing, and support.
+
+<Callout kind="info">
+  Ready to partner? Contact our team to discuss your business needs and start the onboarding process.
+</Callout>
+
+## Quick Navigation
+
+<Columns cols={3}>
+  <Card title="Partnership Eligibility" icon="users" href="#partnership">
+    Learn who qualifies and next steps.
+  </Card>
+  <Card title="Pricing & Contracts" icon="dollar-sign" href="#pricing">
+    Understand our transparent pricing model.
+  </Card>
+  <Card title="Support Contacts" icon="headphones" href="#support">
+    Get help for operations and troubleshooting.
+  </Card>
+</Columns>
+
+<Tabs default-tab="1">
+  <Tab title="Partnership Eligibility" icon="users">
+
+## What are the eligibility requirements to become a NorAm partner?
+
+You qualify if your business operates in media, consumer electronics, consumer goods, or related sectors needing 3PL fulfillment, asset recovery, kitting, or returns management. Minimum annual volume requirements apply: `<500` units/month for starters, `>5,000` units/month for premium tiers.
+
+<ExpandableGroup>
+  <Expandable title="How do I apply?">
+    Follow these steps to submit your partnership application.
+
+    <Steps>
+      <Step title="Review Services" icon="book-open">
+        Visit our services page to match your needs with offerings like B2B fulfillment or returns grading.
+      </Step>
+      <Step title="Submit Form" icon="send">
+        Complete the online form at `https://noram.partners/apply` with your business details, projected volumes, and contact info.
+      </Step>
+      <Step title="Schedule Call" icon="phone">
+        Our team reviews submissions within `48 hours` and schedules a discovery call.
+      </Step>
+    </Steps>
+  </Expandable>
+
+  <Expandable title="What documents do you need?" default-open="true">
+    Prepare your business license, proof of insurance, and volume forecasts. Upload them securely during application.
+  </Expandable>
+</ExpandableGroup>
+
+  </Tab>
+
+  <Tab title="Pricing & Contracts" icon="dollar-sign">
+
+## How is pricing structured?
+
+NorAm uses volume-based tiered pricing with no hidden fees. Base rates start at `$0.50` per unit for fulfillment, scaling down for higher volumes. Contracts are flexible: month-to-month for trials, annual for discounts.
+
+| Tier | Monthly Volume | Fulfillment Rate | Kitting Add-on |
+|------|----------------|------------------|----------------|
+| Starter | `<500` units | `$0.75`/unit | `$0.20`/kit |
+| Growth | `500-5,000` units | `$0.50`/unit | `$0.15`/kit |
+| Enterprise | `>5,000` units | `$0.35`/unit | `$0.10`/kit |
+
+<Callout kind="tip">
+  Request a custom quote by emailing `quotes@noram.partners` with your projected volumes for optimized rates.
+</Callout>
+
+<Expandable title="Sample Contract Terms">
+  Contracts include SLAs for `99.9%` uptime, `24-hour` returns processing, and free API integration for inventory sync.
+
+  ```json
+  {
+    "tier": "Growth",
+    "monthlyMinimum": 500,
+    "rate": 0.50,
+    "services": ["fulfillment", "kitting", "returns"],
+    "slaUptime": "99.9%"
+  }
+  ```
+</Expandable>
+
+  </Tab>
+
+  <Tab title="Support & Troubleshooting" icon="headphones">
+
+## Who do I contact for support?
+
+Use these channels based on your issue urgency.
+
+| Issue Type | Contact Method | Response Time | Details |
+|------------|----------------|---------------|---------|
+| Technical (API/Portal) | `support@noram.partners` | `<2 hours` | Include order ID and error logs |
+| Billing/Pricing | `billing@noram.partners` | `<24 hours` | Attach invoice numbers |
+| Operations (Shipping) | Phone: `1-800-NORAM-HELP` | Immediate | `24/7` for urgent delays |
+| General Inquiries | Portal Chat | `<1 hour` | Log in at `partners.noram.com` |
+
+## Troubleshooting Common Issues
+
+<Steps>
+  <Step title="Check Portal Status" icon="monitor">
+    Log into the partner portal to view real-time shipment tracking and inventory levels.
+  </Step>
+  <Step title="Verify API Keys" icon="key">
+    Ensure your integration uses valid credentials. Regenerate at `partners.noram.com/settings`.
+  </Step>
+  <Step title="Escalate if Needed" icon="alert-triangle">
+    If unresolved after `4 hours`, call our priority line.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="Portal Login,cURL API Check">
+  ```javascript
+  // Portal login example
+  const login = async () => {
+    const response = await fetch('https://partners.noram.com/api/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({ email: 'your@email.com', password: 'YOUR_PASSWORD' })
+    });
+    return response.json();
+  };
+  ```
+  ```bash
+  # API status check
+  curl -H "Authorization: Bearer YOUR_API_TOKEN" \
+       https://api.noram.partners/v1/status
+  ```
+</CodeGroup>
+
+  </Tab>
+</Tabs>
+
+## Next Steps
+
+Review the sections above and reach out via the contacts provided. NorAm partners benefit from scalable logistics that grow with your business.

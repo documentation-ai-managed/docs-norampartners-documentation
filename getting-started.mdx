@@ -1,0 +1,133 @@
+---
+title: Getting Started as a NorAm Partner
+description: Step-by-step onboarding process to begin partnering with NorAm for logistics and fulfillment services.
+---
+
+## Overview
+
+NorAm International Partners provides comprehensive logistics solutions including asset recovery, 3PL fulfillment, kitting, and returns grading & repair for media, consumer electronics, and consumer goods. As a partner, you gain access to B2B and B2C fulfillment services tailored to your business needs. Follow these steps to apply, set up your account, and integrate your first service.
+
+<Columns cols={3}>
+  <Card title="B2B Fulfillment" icon="package" href="/docs/fulfillment/b2b">
+    Scale your supply chain with automated order processing and global shipping.
+  </Card>
+  <Card title="Returns Management" icon="rotate-ccw" href="/docs/returns">
+    Grade, repair, and restock returns efficiently to minimize losses.
+  </Card>
+  <Card title="Kitting Services" icon="layers" href="/docs/kitting">
+    Customize assemblies for consumer electronics and media products.
+  </Card>
+</Columns>
+
+## Partnership Application
+
+Begin by submitting your partnership application through the NorAm Partner Portal.
+
+<Steps>
+  <Step title="Create Application" icon="user-plus">
+    Visit the [Partner Portal](https://partners.noram.com/apply) and fill out the form with your business details, including company name, EIN, and primary contact information.
+  </Step>
+  <Step title="Submit Documents" icon="upload">
+    Upload required documents: business license, proof of insurance, and warehouse capabilities overview.
+  </Step>
+  <Step title="Await Approval" icon="clock">
+    NorAm reviews applications within `3-5 business days`. You'll receive an email notification.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Prepare your EIN and insurance details in advance to speed up approval. Applications with complete documentation process `50%` faster.
+</Callout>
+
+## Account Setup and Verification
+
+Once approved, set up your partner account.
+
+### Verification Requirements
+
+| Requirement     | Description                          | Format                  |
+|-----------------|--------------------------------------|-------------------------|
+| Business EIN    | Your tax ID number                   | 9 digits                |
+| API Key         | Generated during setup               | `noram-partner-xxx`     |
+| Webhook URL     | Your endpoint for notifications      | HTTPS required          |
+
+<Steps>
+  <Step title="Activate Account" icon="check-circle">
+    Use the approval email link to create your password and enable two-factor authentication.
+  </Step>
+  <Step title="Configure Profile" icon="settings">
+    Add billing details, preferred warehouses, and service preferences in the dashboard.
+  </Step>
+  <Step title="Verify Integration" icon="shield">
+    Test your webhook endpoint using the built-in verifier tool.
+  </Step>
+</Steps>
+
+## First Service Integration
+
+Integrate your first service using the NorAm API. Start with order fulfillment.
+
+<Tabs>
+  <Tab title="REST API" icon="api">
+    Authenticate requests with your API key.
+
+    <CodeGroup tabs="JavaScript,Python">
+      ```javascript
+      const response = await fetch('https://api.noram.com/v1/orders', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${YOUR_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          orderId: 'ORD-12345',
+          items: [{ sku: 'ELEC-001', quantity: 10 }]
+        })
+      });
+      ```
+      ```python
+      import requests
+
+      headers = {
+          'Authorization': f'Bearer {YOUR_API_KEY}',
+          'Content-Type': 'application/json'
+      }
+      data = {
+          'orderId': 'ORD-12345',
+          'items': [{'sku': 'ELEC-001', 'quantity': 10}]
+      }
+      response = requests.post('https://api.noram.com/v1/orders', headers=headers, json=data)
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Webhooks" icon="zap">
+    Configure webhooks for real-time updates.
+
+    ```javascript
+    // Example webhook handler
+    app.post('/noram-webhook', (req, res) => {
+      const event = req.body;
+      if (event.type === 'order shipped') {
+        console.log(`Order ${event.orderId} shipped`);
+      }
+      res.status(200).send('OK');
+    });
+    ```
+  </Tab>
+</Tabs>
+
+<Callout kind="info">
+  Replace `YOUR_API_KEY` with the key from your dashboard. All endpoints require HTTPS.
+</Callout>
+
+## Next Steps
+
+<Expandable title="Common Integration FAQs" default-open="false">
+  ### How long until my first shipment?
+  Orders placed before `2 PM ET` ship same day from our primary warehouses.
+
+  ### What if I need custom kitting?
+  Contact support@noram.com with specs after account setup.
+</Expandable>
+
+Your partnership is now active. Monitor your dashboard for orders and analytics. For support, use the in-app chat or email partners@noram.com.

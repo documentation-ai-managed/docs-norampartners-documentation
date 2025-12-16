@@ -1,0 +1,92 @@
+{
+  "name": "Norampartners Documentation",
+  "initialRoute": "introduction",
+  "colors": {
+    "light": {
+      "brand": "#cbcd3e"
+    },
+    "dark": {
+      "brand": "#d8da6e"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "icon": "book",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
+            "pages": [
+              {
+                "title": "Introduction",
+                "path": "introduction",
+                "icon": "star"
+              },
+              {
+                "title": "Quick Start",
+                "path": "getting-started",
+                "icon": "zap"
+              }
+            ]
+          },
+          {
+            "group": "Core Services",
+            "icon": "layers",
+            "pages": [
+              {
+                "title": "Fulfillment Guide",
+                "path": "fulfillment-guide",
+                "icon": "package"
+              },
+              {
+                "title": "Asset Recovery",
+                "path": "asset-recovery",
+                "icon": "box"
+              }
+            ]
+          },
+          {
+            "group": "Additional Resources",
+            "icon": "folder",
+            "pages": [
+              {
+                "title": "Integrations",
+                "path": "integrations",
+                "icon": "plug"
+              },
+              {
+                "title": "FAQ",
+                "path": "faq",
+                "icon": "help-circle"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Endpoints",
+            "icon": "terminal",
+            "openapi": "openapi.yaml"
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "icon": "clock",
+        "pages": [
+          {
+            "title": "Release History",
+            "path": "changelog",
+            "icon": "history"
+          }
+        ]
+      }
+    ]
+  }
+}
